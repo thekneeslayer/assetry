@@ -11,29 +11,49 @@ model User {
   id            String     @id @default(uuid())
   walletAddress String     @unique
   username      String?    @unique
+  bio           String?
+  avatarUrl     String?
   createdAt     DateTime   @default(now())
   listings      Listing[]
   purchases     Purchase[] @relation("Buyer")
+  sales         Purchase[] @relation("Seller")
 }
 
 model Listing {
-  id          String     @id @default(uuid())
-  title       String
-  description String
-  price       Float
-  fileUrl     String
-  seller      User       @relation(fields: [sellerId], references: [id])
-  sellerId    String
-  createdAt   DateTime   @default(now())
-  purchases   Purchase[]
+  id              String     @id @default(uuid())
+  title           String
+  description     String
+  price           Float
+  fileUrl         String     @default("")
+  fileName        String?
+  fileSize        Int?
+  previewUrl      String?
+  category        String     @default("other")
+  tags            String[]   @default([])
+  seller          User       @relation(fields: [sellerId], references: [id])
+  sellerId        String
+  sellerAddress   String     @default("")
+  sellerUsername  String?
+  salesCount      Int        @default(0)
+  createdAt       DateTime   @default(now())
+  purchases       Purchase[]
 }
 
 model Purchase {
-  id        String   @id @default(uuid())
-  buyer     User     @relation("Buyer", fields: [buyerId], references: [id])
-  buyerId   String
-  listing   Listing  @relation(fields: [listingId], references: [id])
-  listingId String
-  status    String   @default("pending")
-  createdAt DateTime @default(now())
+  id            String    @id @default(uuid())
+  buyer         User      @relation("Buyer", fields: [buyerId], references: [id])
+  buyerId       String
+  buyerAddress  String    @default("")
+  seller        User      @relation("Seller", fields: [sellerId], references: [id])
+  sellerId      String
+  sellerAddress String    @default("")
+  listing       Listing   @relation(fields: [listingId], references: [id])
+  listingId     String
+  listingTitle  String    @default("")
+  listingPrice  Float     @default(0)
+  status        String    @default("pending")
+  txHash        String?
+  confirmedAt   DateTime?
+  disputedAt    DateTime?
+  createdAt     DateTime  @default(now())
 }

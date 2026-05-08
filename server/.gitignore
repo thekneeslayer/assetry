@@ -5,3 +5,6 @@ node_modules
 /generated/prisma
 
 /generated/prisma
+
+# Uploaded product files — do not commit to git
+uploads/

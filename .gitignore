@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Environment files — never commit these
+.env
+.env.local
+.env.*.local
+contracts/.env
+
+# Hardhat
+artifacts/
+cache/
+
+# Uploaded product files
+server/uploads/
+
+# Next.js
+client/.next/
+
+# Misc
+.DS_Store
+*.log

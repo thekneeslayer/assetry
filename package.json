@@ -1,0 +1,27 @@
+{
+  "name": "assetry",
+  "version": "1.0.0",
+  "description": "Assetry is a decentralized marketplace for buying and selling digital goods such as software, digital art, and downloadable assets. Payments are secured using blockchain-based escrow, where funds are held in a smart contract and only released to the seller after the buyer confirms successful delivery. This ensures trustless, transparent, and secure transactions without relying on intermediaries.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thekneeslayer/assetry.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/thekneeslayer/assetry/issues"
+  },
+  "homepage": "https://github.com/thekneeslayer/assetry#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^7.0.0",
+    "@nomicfoundation/hardhat-toolbox-mocha-ethers": "^3.0.4",
+    "dotenv": "^17.4.2",
+    "hardhat": "^3.4.4"
+  }
+}
